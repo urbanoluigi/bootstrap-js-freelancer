@@ -9,3 +9,19 @@ function calculateOffer(event) {
     let hoursRequested = parseFloat(document.getElementById('hours').value);
     let projectType = document.getElementById('type-of-work').value;
     let discountCode = document.getElementById('discount-code').value;
+
+    // Inizializza il prezzo orario in base al tipo di progetto
+    let hourlyRate;
+    switch (projectType) {
+      case '1':
+        hourlyRate = 20.50;
+        break;
+      case '2':
+        hourlyRate = 15.30;
+        break;
+      case '3':
+        hourlyRate = 33.60;
+        break;
+      default:
+        hourlyRate = 0;
+    }
