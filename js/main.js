@@ -25,3 +25,12 @@ function calculateOffer(event) {
       default:
         hourlyRate = 0;
     }
+
+    // Verifica se il codice promozionale è valido
+    let isValidPromo = promoCodes.includes(discountCode);
+
+    // Calcola il prezzo finale
+    let totalPrice = isValidPromo ? hoursRequested * hourlyRate * 0.75 : hoursRequested * hourlyRate;
+
+    // Ottieni l'elemento HTML dove mostrare il risultato
+    let priceElement = document.getElementById('price');
