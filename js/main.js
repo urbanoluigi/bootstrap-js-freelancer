@@ -34,3 +34,17 @@ function calculateOffer(event) {
 
     // Ottieni l'elemento HTML dove mostrare il risultato
     let priceElement = document.getElementById('price');
+
+        // Mostra il risultato formattato
+        if (isValidPromo) {
+            // Rimuovi il codice promozionale dalla lista se è valido
+            promoCodes = promoCodes.filter(code => code !== discountCode);
+            // Modifica il colore del campo del codice promozionale a verde se è valido
+            document.getElementById('discount-code').style.borderColor = 'green';
+            priceElement.innerHTML = 'Prezzo Finale: ' + totalPrice.toFixed(2) + '€ (Sconto Applicato)';
+          } else {
+            // Modifica il colore del campo del codice promozionale a rosso se non è valido
+            document.getElementById('discount-code').style.borderColor = 'red';
+            priceElement.innerHTML = 'Prezzo Finale: ' + totalPrice.toFixed(2) + '€ (Codice Promozionale Non Valido)';
+          }
+        }      
